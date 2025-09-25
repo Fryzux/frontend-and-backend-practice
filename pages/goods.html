@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <title>Каталог товаров</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Каталог: карточки товаров с изображением, названием и ценой.">
+  <style>
+    :root { --max: 1100px; --gap: 16px; --muted: #6b7280; --border: #e5e7eb; }
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; line-height: 1.6; color: #111827; background: #fff; }
+    header.site-header, footer.site-footer { background: #111827; color: #fff; }
+    .wrap { max-width: var(--max); margin: 0 auto; padding: 16px; }
+    nav.primary { background: #1f2937; color: #fff; }
+    nav.primary a { color: #fff; text-decoration: none; }
+    nav.primary ul { list-style: none; display: flex; gap: 16px; margin: 0; padding: 0; overflow-x: auto; }
+    main { padding-block: 24px; }
+    .catalog { margin: 0; padding: 0; list-style: none; display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: var(--gap); }
+    .card { border: 1px solid var(--border); border-radius: 12px; overflow: hidden; background: #fff; display: flex; flex-direction: column; height: 100%; }
+    .card picture, .card img { display: block; width: 100%; height: auto; }
+    .card .body { padding: 12px; display: flex; flex-direction: column; gap: 8px; flex: 1; }
+    .card h3 { margin: 0; font-size: 1rem; line-height: 1.4; }
+    .price { margin-top: auto; font-weight: 600; }
+    .muted { color: var(--muted); font-size: 0.9rem; }
+    footer.site-footer { margin-top: 24px; }
+  </style>
+</head>
+<body>
+
+  <!-- Хедер из основной страницы -->
+  <header class="site-header" role="banner">
+    <div class="wrap">
+      <a href="index.html" style="color:#fff; text-decoration:none;"><h1 style="margin:0;">Название магазина</h1></a>
+      <p class="muted" style="color:#d1d5db;">Каталог товаров и лучшие предложения</p>
+    </div>
+  </header>
+
+  <!-- Меню навигации из основной страницы -->
+  <nav class="primary" aria-label="Основная навигация">
+    <div class="wrap">
+      <ul>
+        <li><a href="index.html">Главная</a></li>
+        <li><a href="goods.html" aria-current="page">Каталог</a></li>
+        <li><a href="sales.html">Акции</a></li>
+        <li><a href="about.html">О нас</a></li>
+        <li><a href="contacts.html">Контакты</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Основной контент: карточки товаров -->
+  <main id="content" class="wrap">
+    <h2 style="margin: 0 0 12px 0;">Каталог</h2>
+    <p class="muted" style="margin: 0 0 16px 0;">Выберите товар из списка ниже</p>
+
+    <!-- Список карточек (доступность: озвучивание количества) -->
+    <ul class="catalog" role

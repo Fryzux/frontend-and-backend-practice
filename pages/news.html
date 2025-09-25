@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <title>Новости — Блог и Форум</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Страница новостей: заголовки, даты публикации, авторы и тексты.">
+  <link rel="preconnect" href>
+  <style>
+    :root { --max: 920px; --gap: 16px; --muted: #6b7280; }
+    body { margin: 0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; line-height: 1.6; }
+    header.site-header, footer.site-footer { background: #111827; color: #fff; }
+    header.site-header a, nav a { color: inherit; text-decoration: none; }
+    .wrap { max-width: var(--max); margin: 0 auto; padding: 16px; }
+    nav.primary { background: #1f2937; color: #fff; }
+    nav.primary ul { list-style: none; margin: 0; padding: 0; display: flex; gap: 16px; overflow-x: auto; }
+    main { padding-block: 24px; }
+    article { padding: 16px; border: 1px solid #e5e7eb; border-radius: 12px; }
+    article + article { margin-top: 16px; }
+    article header h2 { margin: 0 0 8px 0; font-size: 1.5rem; }
+    .meta { font-size: 0.95rem; color: var(--muted); display: flex; gap: 12px; flex-wrap: wrap; }
+    .meta time { white-space: nowrap; }
+    article p { margin: 12px 0; }
+    footer.site-footer { margin-top: 24px; }
+    @media (min-width: 768px) {
+      article { padding: 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Хедер из основной страницы -->
+  <header class="site-header" role="banner">
+    <div class="wrap">
+      <a href="index.html"><h1 style="margin:0;">Название сайта</h1></a>
+      <p style="margin:4px 0 0 0;">Актуальные новости и обсуждения</p>
+    </div>
+  </header>
+
+  <!-- Меню навигации из основной страницы -->
+  <nav class="primary" aria-label="Основная навигация">
+    <div class="wrap">
+      <ul>
+        <li><a href="index.html">Главная</a></li>
+        <li><a href="news.html" aria-current="page">Новости</a></li>
+        <li><a href="forum.html">Форум</a></li>
+        <li><a href="about.html">О нас</a></li>
+        <li><a href="contacts.html">Контакты</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Основной контент: минимум 3 новости -->
+  <main id="content" class="wrap">
+    <!-- Новость 1 -->
+    <article itemscope itemtype="https://schema.org/NewsArticle">
+      <header>
+        <h2 itemprop="headline">Запуск обновлённой версии сайта</h2>
+        <div class="meta">
+          <span>Автор: <span itemprop="author">Редакция</span></span>
+          <time datetime="2025-09-25" itemprop="datePublished">25 сентября 2025</time>
+        </div>
+      </header>
+      <p itemprop="articleBody">
+        Представлена новая версия портала с улучшенной навигацией, адаптивной типографикой и ускоренной загрузкой страниц благодаря оптимизации стилей и изображений. Обратная связь пользователей поможет приоритизировать ближайшие улучшения раздела форума и профилей. 
+      </p>
+    </article>
+
+    <!-- Новость 2 -->
+    <article itemscope itemtype="https://schema.org/NewsArticle">
+      <header>
+        <h2 itemprop="headline">Анонс еженедельной рассылки</h2>
+        <div class="meta">
+          <span>Автор: <span itemprop="author">PR-отдел</span></span>
+          <time datetime="2025-09-20" itemprop="datePublished">20 сентября 2025</time>
+        </div>
+      </header>
+      <p itemprop="articleBody">
+        Стартует еженедельная рассылка с подборкой главных новостей, аналитикой и комментариями редакции. Подписку можно оформить в личном кабинете, а настройки частоты и тем оформляются индивидуально. 
+      </p>
+    </article>
+
+    <!-- Новость 3 -->
+    <article itemscope itemtype="https://schema.org/NewsArticle">
+      <header>
+        <h2 itemprop="headline">Открыто бета-тестирование мобильной версии</h2>
+        <div class="meta">
+          <span>Автор: <span itemprop="author">Команда продукта</span></span>
+          <time datetime="2025-09-15" itemprop="datePublished">15 сентября 2025</time>
+        </div>
+      </header>
+      <p itemprop="articleBody">
+        Мобильная версия поддерживает офлайн-чтение избранных материалов и оптимизирована для экономии трафика. Участники бета-теста получают ранний доступ к новым функциям и могут оставлять предложения по улучшениям. 
+      </p>
+    </article>
+  </main>
+
+  <!-- Футер из основной страницы -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="wrap">
+      <p style="margin:0;">© 2025 Название сайта • Все права защищены</p>
+      <p style="margin:4px 0 0 0;">Почта редакции: editor@example.com</p>
+    </div>
+  </footer>
+
+</body>
+</html>
