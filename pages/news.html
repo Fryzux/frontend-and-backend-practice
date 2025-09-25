@@ -1,69 +1,181 @@
-<!doctype html>
-<html lang="ru">
-<head>
-  <meta charset="utf-8">
-  <title>Новости</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="../styles/style.css">
-  <meta name="description" content="Страница новостей: заголовки, даты, авторы и тексты.">
-</head>
-<body>
-  <header class="site-header" role="banner">
-    <div class="wrap">
-      <a href="../index.html" style="color:#fff;"><h1 style="margin:0;">Новости</h1></a>
-      <p class="muted" style="color:#d1d5db;">Актуальные обновления</p>
-    </div>
-  </header>
+/* ===== БАЗОВЫЕ СТИЛИ ===== */
+:root {
+  --max: 1200px;
+  --gap: 16px;
+  --muted: #7f8c8d;
+  --border: #e5e7eb;
+  --accent1: #667eea;
+  --accent2: #764ba2;
+}
 
-  <nav class="primary" aria-label="Основная навигация">
-    <div class="wrap">
-      <ul>
-        <li><a href="../index.html">Главная</a></li>
-        <li><a href="news.html" aria-current="page">Новости</a></li>
-        <li><a href="practices.html">Практики</a></li>
-        <li><a href="goods.html">Товары</a></li>
-        <li><a href="contacts.html">Контакты</a></li>
-      </ul>
-    </div>
-  </nav>
+* { box-sizing: border-box; }
+html, body { height: 100%; }
 
-  <main id="content" class="wrap">
-    <article itemscope itemtype="https://schema.org/NewsArticle">
-      <header>
-        <h2 itemprop="headline">Запуск обновлённой версии сайта</h2>
-        <div class="meta">
-          <span>Автор: <span itemprop="author">Редакция</span></span>
-          <time datetime="2025-09-25" itemprop="datePublished">25 сентября 2025</time>
-        </div>
-      </header>
-      <p itemprop="articleBody">Новая версия портала с улучшенной навигацией и ускоренной загрузкой.</p>
-    </article>
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(135deg, var(--accent1) 0%, var(--accent2) 100%);
+  min-height: 100vh;
+  color: #2c3e50;
+}
 
-    <article itemscope itemtype="https://schema.org/NewsArticle">
-      <header>
-        <h2 itemprop="headline">Анонс еженедельной рассылки</h2>
-        <div class="meta">
-          <span>Автор: <span itemprop="author">PR‑отдел</span></span>
-          <time datetime="2025-09-20" itemprop="datePublished">20 сентября 2025</time>
-        </div>
-      </header>
-      <p itemprop="articleBody">Стартует рассылка с главными новостями и аналитикой.</p>
-    </article>
+/* Контейнеры */
+.page-container {
+  max-width: var(--max);
+  margin: 0 auto;
+  background: #fff;
+  min-height: 100%;
+  box-shadow: 0 0 30px rgba(0,0,0,.1);
+  padding: 0 16px;
+}
+.wrap {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 0 16px;
+  background: transparent;   /* фикс: не перекрывать шапку белым */
+  box-shadow: none;          /* фикс: убрать тень у внутренней обёртки */
+}
 
-    <article itemscope itemtype="https://schema.org/NewsArticle">
-      <header>
-        <h2 itemprop="headline">Бета‑тест мобильной версии</h2>
-        <div class="meta">
-          <span>Автор: <span itemprop="author">Команда продукта</span></span>
-          <time datetime="2025-09-15" itemprop="datePublished">15 сентября 2025</time>
-        </div>
-      </header>
-      <p itemprop="articleBody">Офлайн‑чтение избранного и экономия трафика.</p>
-    </article>
-  </main>
+/* ===== ШАПКА ===== */
+header.site-header {
+  background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+  color: #ffffff;
+  text-align: center;
+  padding: 30px 16px;
+  font-size: 28px;
+  font-weight: 300;
+  letter-spacing: 2px;
+  user-select: none; /* фикс: не выделять синим случайно */
+}
+header.site-header h1,
+header.site-header p { margin: 0; }
 
-  <footer class="site-footer" role="contentinfo">
-    <div class="wrap"><p style="margin:0;">© 2025 Семестровая работа</p></div>
-  </footer>
-</body>
-</html>
+/* ===== НАВИГАЦИЯ ===== */
+nav.primary {
+  background: #2c3e50;
+  padding: 12px 0;
+  box-shadow: inset 0 -1px 0 rgba(255,255,255,.06);
+}
+nav.primary ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center; /* фикс: ровное выравнивание по вертикали */
+  gap: 25px;
+  overflow-x: auto;
+}
+nav.primary li { margin: 0; background: transparent; } /* фикс: убрать белый фон у li */
+nav.primary a {
+  color: #fff;
+  text-decoration: none;
+  padding: 10px 18px;
+  border-radius: 25px;
+  transition: all .3s ease;
+  font-weight: 500;
+  white-space: nowrap;
+  background: transparent; /* фикс: убрать белые «плашки» */
+  display: inline-block;
+  line-height: 1;
+}
+nav.primary a:hover {
+  background: rgba(255,255,255,.1);
+  transform: translateY(-2px);
+}
+nav.primary a[aria-current="page"] {
+  background: rgba(255,255,255,.18);
+}
+nav.primary a:focus {
+  outline: 3px solid rgba(255,255,255,.35);
+  outline-offset: 2px;
+}
+
+/* ===== ОСНОВНОЙ КОНТЕНТ ===== */
+main, .content {
+  padding: 32px 16px 40px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+.muted { color: var(--muted); }
+
+/* ===== ПРОФИЛЬ (Главная) ===== */
+.profile-header { text-align: center; margin-bottom: 24px; }
+.profile-title {
+  font-size: 32px; color: #2c3e50; margin-bottom: 10px; font-weight: 300;
+}
+.profile-photo {
+  width: 220px; height: 280px; border-radius: 15px; object-fit: cover;
+  margin: 20px auto; display: block;
+  border: 4px solid var(--accent1);
+  box-shadow: 0 8px 25px rgba(102,126,234,.3);
+}
+.profile-name { font-size: 24px; color: #2c3e50; margin: 10px 0; font-weight: 500; }
+.profile-group { font-size: 18px; color: var(--muted); margin: 5px 0; }
+.about-me {
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  padding: 25px; border-radius: 15px; margin: 30px 0;
+  border-left: 5px solid var(--accent1);
+  font-size: 16px; line-height: 1.8;
+}
+
+/* ===== НАВЫКИ ===== */
+.skills-container {
+  display: flex; justify-content: center; flex-wrap: wrap; gap: 15px; margin: 30px 0;
+}
+.skill-tag {
+  background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+  color: #fff; padding: 12px 25px; border-radius: 25px;
+  font-weight: 600; font-size: 14px;
+  box-shadow: 0 4px 15px rgba(79,172,254,.3);
+  transition: all .3s ease;
+}
+.skill-tag:hover { transform: translateY(-3px); box-shadow: 0 6px 20px rgba(79,172,254,.4); }
+
+/* ===== ОПЫТ ===== */
+.experience-section { margin-top: 40px; }
+.section-title {
+  font-size: 28px; color: #2c3e50; text-align: center; margin-bottom: 24px; font-weight: 300;
+}
+.experience-card {
+  background: #fff; padding: 25px; margin: 16px 0; border-radius: 12px;
+  box-shadow: 0 5px 20px rgba(0,0,0,.08); border-left: 4px solid var(--accent1);
+  transition: transform .3s ease;
+}
+.experience-card:hover { transform: translateX(5px); }
+.experience-title { font-size: 20px; color: #2c3e50; margin: 0 0 10px; font-weight: 600; }
+.experience-desc { color: var(--muted); line-height: 1.6; margin: 0; }
+
+/* ===== НОВОСТИ ===== */
+article { padding: 16px; border: 1px solid var(--border); border-radius: 12px; background:#fff; }
+article + article { margin-top: 16px; }
+article header h2 { margin: 0 0 8px; font-size: 1.5rem; }
+.meta { font-size: .95rem; color: var(--muted); display: flex; gap: 12px; flex-wrap: wrap; }
+.meta time { white-space: nowrap; }
+
+/* ===== КАТАЛОГ ===== */
+.catalog {
+  margin: 0; padding: 0; list-style: none;
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: var(--gap);
+}
+.card {
+  border: 1px solid var(--border); border-radius: 12px; overflow: hidden; background: #fff;
+  display: flex; flex-direction: column; height: 100%;
+}
+.card picture, .card img { display: block; width: 100%; height: auto; }
+.card .body { padding: 12px; display: flex; flex-direction: column; gap: 8px; flex: 1; }
+.card h3 { margin: 0; font-size: 1rem; line-height: 1.4; }
+.price { margin-top: auto; font-weight: 600; }
+
+/* ===== КОНТАКТЫ ===== */
+.grid { display: grid; gap: var(--gap); grid-template-columns: 1fr; }
+@media (min-width: 640px) { .grid { grid-template-columns: 1fr 1fr; } }
+.btn { display: inline-block; background: #2563eb; color: #fff; padding: 10px 16px; border-radius: 8px; border: 0; cursor: pointer; }
+.btn:focus { outline: 3px solid #93c5fd; outline-offset: 2px; }
+
+/* ===== ФУТЕР ===== */
+footer.site-footer {
+  background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+  color: #fff; text-align: center; padding: 30px 16px; margin-top: 40px;
+}
