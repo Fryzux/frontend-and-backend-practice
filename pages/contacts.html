@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <title>Контакты</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Контакты: e‑mail, адрес и кнопка для обратного звонка.">
+  <style>
+    :root { --max: 920px; --gap: 16px; --muted: #6b7280; --border: #e5e7eb; }
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; line-height: 1.6; color: #111827; background: #fff; }
+    header.site-header, footer.site-footer { background: #111827; color: #fff; }
+    a { color: #2563eb; }
+    .wrap { max-width: var(--max); margin: 0 auto; padding: 16px; }
+    nav.primary { background: #1f2937; color: #fff; }
+    nav.primary a { color: #fff; text-decoration: none; }
+    nav.primary ul { list-style: none; display: flex; gap: 16px; margin: 0; padding: 0; overflow-x: auto; }
+    main { padding-block: 24px; }
+    .card { border: 1px solid var(--border); border-radius: 12px; padding: 16px; background: #fff; }
+    .grid { display: grid; gap: var(--gap); grid-template-columns: 1fr; }
+    .muted { color: var(--muted); }
+    .btn { display: inline-block; background: #2563eb; color: #fff; padding: 10px 16px; border-radius: 8px; text-decoration: none; border: 0; cursor: pointer; }
+    .btn:focus { outline: 3px solid #93c5fd; outline-offset: 2px; }
+    @media (min-width: 640px) { .grid { grid-template-columns: 1fr 1fr; } }
+  </style>
+</head>
+<body>
+
+  <!-- Хедер из основной страницы -->
+  <header class="site-header" role="banner">
+    <div class="wrap">
+      <a href="index.html" style="color:#fff; text-decoration:none;"><h1 style="margin:0;">Название сайта</h1></a>
+      <p class="muted" style="color:#d1d5db;">Связаться с командой</p>
+    </div>
+  </header>
+
+  <!-- Меню навигации из основной страницы -->
+  <nav class="primary" aria-label="Основная навигация">
+    <div class="wrap">
+      <ul>
+        <li><a href="index.html">Главная</a></li>
+        <li><a href="news.html">Новости</a></li>
+        <li><a href="goods.html">Каталог</a></li>
+        <li><a href="contacts.html" aria-current="page">Контакты</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Основной контент: e‑mail, адрес, кнопка Позвоните мне -->
+  <main id="content" class="wrap">
+    <h2 style="margin: 0 0 12px 0;">Контакты</h2>
+    <p class="muted" style="margin: 0 0 16px 0;">Всегда на связи в рабочие часы</p>
+
+    <section class="grid" aria-label="Контактная информация">
+      <!-- E-mail -->
+      <div class="card" role="group" aria-labelledby="email-title">
+        <h3 id="email-title" style="margin-top:0;">Электронная почта</h3>
+        <p>Пишите на адрес редакции для общих вопросов и предложений [email protected].</p>
+        <p><a href="mailto:editor@example.com" class="btn" aria-label="Написать на электронную почту">Написать</a></p>
+      </div>
+
+      <!-- Адрес -->
+      <div class="card" role="group" aria-labelledby="address-title">
+        <h3 id="address-title" style="margin-top:0;">Адрес</h3>
+        <address>
+          123100, г. Москва, Пресненская наб., д. 10, офис 15<br>
+          Пн–Пт: 10:00–19:00
+        </address>
+      </div>
+    </section>
+
+    <!-- Кнопка «Позвоните мне» -->
+    <section class="card" style="margin-top:16px;" aria-label="Обратный звонок">
+      <h3 style="margin-top:0;">Позвоните мне</h3>
+      <p class="muted">Оставьте запрос — специалист свяжется по указанному номеру.</p>
+      <form action="#" method="post" aria-label="Форма обратного звонка">
+        <label for="phone">Номер телефона</label>
+        <div style="display:flex; gap:8px; margin-top:6px;">
+          <input id="phone" name="phone" type="tel" inputmode="tel" required placeholder="+7 900 000‑00‑00" style="flex:1; padding:10px; border:1px solid var(--border); border-radius:8px;">
+          <button type="submit" class="btn">Позвоните мне</button>
+        </div>
+      </form>
+      <p style="margin-top:8px;"><a href="tel:+79000000000" aria-label="Позвонить по номеру +7 900 000 00 00">Или позвонить сейчас</a></p>
+    </section>
+  </main>
+
+  <!-- Футер из основной страницы -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="wrap">
+      <p style="margin:0;">© 2025 Название сайта • Все права защищены</p>
+      <p style="margin:4px 0 0 0;">E‑mail: editor@example.com</p>
+    </div>
+  </footer>
+
+</body>
+</html>
