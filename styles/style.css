@@ -9,7 +9,6 @@
 }
 
 * { box-sizing: border-box; }
-
 html, body { height: 100%; }
 
 body {
@@ -22,13 +21,21 @@ body {
 }
 
 /* Контейнер страницы */
-.page-container, .wrap {
+.page-container {
   max-width: var(--max);
   margin: 0 auto;
-  background: #fff;
+  background: #ffffff;
   min-height: 100%;
-  box-shadow: 0 0 30px rgba(0,0,0,.1);
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
   padding: 0 16px;
+}
+/* Внутренние обёртки — без белого фона и тени */
+.wrap {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 0 16px;
+  background: transparent;   /* фикс */
+  box-shadow: none;          /* фикс */
 }
 
 /* ===== ШАПКА ===== */
@@ -40,26 +47,28 @@ header.site-header, .header {
   font-size: 28px;
   font-weight: 300;
   letter-spacing: 2px;
+  user-select: none; /* фикс случайного выделения */
 }
+header.site-header h1,
+header.site-header p { margin: 0; }
 
 /* ===== НАВИГАЦИЯ ===== */
 nav.primary, .nav {
   background: #2c3e50;
   padding: 12px 0;
+  box-shadow: inset 0 -1px 0 rgba(255,255,255,.06);
 }
-
 nav.primary ul, .nav-list {
   list-style: none;
   margin: 0;
   padding: 0;
   display: flex;
   justify-content: center;
+  align-items: center; /* фикс выравнивания */
   gap: 25px;
   overflow-x: auto;
 }
-
-nav.primary li, .nav-item { margin: 0; }
-
+nav.primary li, .nav-item { margin: 0; background: transparent; }
 nav.primary a, .nav-link {
   color: #fff;
   text-decoration: none;
@@ -68,16 +77,16 @@ nav.primary a, .nav-link {
   transition: all .3s ease;
   font-weight: 500;
   white-space: nowrap;
+  background: transparent; /* фикс: убрать белые плашки */
+  display: inline-block;
+  line-height: 1;
 }
-
 nav.primary a:hover, .nav-link:hover {
   background: rgba(255,255,255,.1);
   transform: translateY(-2px);
 }
-
-nav.primary a[aria-current="page"] {
-  background: rgba(255,255,255,.18);
-}
+nav.primary a[aria-current="page"] { background: rgba(255,255,255,.18); }
+nav.primary a:focus { outline: 3px solid rgba(255,255,255,.35); outline-offset: 2px; }
 
 /* ===== ОСНОВНОЙ КОНТЕНТ ===== */
 main, .content {
@@ -85,27 +94,19 @@ main, .content {
   max-width: 900px;
   margin: 0 auto;
 }
+.muted { color: var(--muted); }
 
 /* ===== ПРОФИЛЬ (Главная) ===== */
 .profile-header { text-align: center; margin-bottom: 24px; }
-
-.profile-title {
-  font-size: 32px;
-  color: #2c3e50;
-  margin-bottom: 10px;
-  font-weight: 300;
-}
-
+.profile-title { font-size: 32px; color: #2c3e50; margin-bottom: 10px; font-weight: 300; }
 .profile-photo {
   width: 220px; height: 280px; border-radius: 15px; object-fit: cover;
   margin: 20px auto; display: block;
   border: 4px solid var(--accent1);
   box-shadow: 0 8px 25px rgba(102,126,234,.3);
 }
-
 .profile-name { font-size: 24px; color: #2c3e50; margin: 10px 0; font-weight: 500; }
 .profile-group { font-size: 18px; color: var(--muted); margin: 5px 0; }
-
 .about-me {
   background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
   padding: 25px; border-radius: 15px; margin: 30px 0;
@@ -114,10 +115,7 @@ main, .content {
 }
 
 /* ===== НАВЫКИ ===== */
-.skills-container {
-  display: flex; justify-content: center; flex-wrap: wrap; gap: 15px; margin: 30px 0;
-}
-
+.skills-container { display: flex; justify-content: center; flex-wrap: wrap; gap: 15px; margin: 30px 0; }
 .skill-tag {
   background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
   color: #fff; padding: 12px 25px; border-radius: 25px;
@@ -129,9 +127,7 @@ main, .content {
 
 /* ===== ОПЫТ ===== */
 .experience-section { margin-top: 40px; }
-.section-title {
-  font-size: 28px; color: #2c3e50; text-align: center; margin-bottom: 24px; font-weight: 300;
-}
+.section-title { font-size: 28px; color: #2c3e50; text-align: center; margin-bottom: 24px; font-weight: 300; }
 .experience-card {
   background: #fff; padding: 25px; margin: 16px 0; border-radius: 12px;
   box-shadow: 0 5px 20px rgba(0,0,0,.08); border-left: 4px solid var(--accent1);
@@ -149,10 +145,14 @@ article header h2 { margin: 0 0 8px; font-size: 1.5rem; }
 .meta time { white-space: nowrap; }
 
 /* ===== КАТАЛОГ ===== */
-.catalog { margin: 0; padding: 0; list-style: none;
-  display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: var(--gap); }
-.card { border: 1px solid var(--border); border-radius: 12px; overflow: hidden; background: #fff;
-  display: flex; flex-direction: column; height: 100%; }
+.catalog {
+  margin: 0; padding: 0; list-style: none;
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: var(--gap);
+}
+.card {
+  border: 1px solid var(--border); border-radius: 12px; overflow: hidden; background: #fff;
+  display: flex; flex-direction: column; height: 100%;
+}
 .card picture, .card img { display: block; width: 100%; height: auto; }
 .card .body { padding: 12px; display: flex; flex-direction: column; gap: 8px; flex: 1; }
 .card h3 { margin: 0; font-size: 1rem; line-height: 1.4; }
