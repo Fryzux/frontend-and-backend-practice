@@ -1,53 +1,68 @@
-<!DOCTYPE html>
-<html lamg="ru">
-
+<!doctype html>
+<html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Семестровая работа</title>
+  <meta charset="utf-8">
+  <title>Семестровая работа — Главная</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="styles/main.css">
+  <meta name="description" content="Главная страница семестровой работы: автор, новости, практики, каталог и контакты.">
 </head>
-
 <body>
-    <header>Ходер</header>
-    <nav>
-        <ui>
-            <li>
-            <li><a href="index.html">Главная</a></li>
-            <li><a href="pages/news.html">Новости</a></li>
-            <li><a href="pages/practices.html">Практики</a></li>
-            <li><a href="pages/goods.html">Товары</a></li>
-            <li><a href="pages/contacts.html">К
-            </li>
-        </ui>
-    </nav>
-    <main>
-        <p>Информация об авторе</p>
-        <img src="images/photo.jpg" alt="Фото автора" width="640" height="480">
-        <div class="bio">
-            <h3>Лэ Дык Тхань Дат</h3>
-            <p>ЭФБО-12-24</p>
-            <p>Род. 1970, Чебоксары</p>
-            <p>Обо мне:</p>
-            <ul>
-                <li>Дворовый теннис: после удара мячом по голове стал другим</li>
-                <li>С детства жесткий: в 4 года уже уверенно ругался</li>
-                <li>Школа: драки, форма всегда в крови и пыли</li>
-                <li>Клей - не клеймо, а прозвище за силу</li>
-                <li>Воровал в раздевалках - так доказывал свое право</li>
-                <li>Вся злость с улиц стала оружием на корте</li>
-            </ul>
-            <p>Чемпионство не по учебникам, а по праву сильного</p>
-        </div>
-        <div>Навык 1</div>
-        <div>Навык 2</div>
-        <div>Навык 3</div>
-        <div>Навык 4</div>
-        <div> Мой опыт работы:
-            <div>
-                Опыт 1<br>
-                Работал фантазёром. Сочинял и праздновал.
-            </div>
-    </main>
-</body>
+  <header class="site-header" role="banner">
+    <div class="wrap">
+      <h1 style="margin:0; color:#fff;">Хедер</h1>
+      <p class="muted" style="color:#d1d5db;">Семестровая работа</p>
+    </div>
+  </header>
 
+  <nav class="primary" aria-label="Основная навигация">
+    <div class="wrap">
+      <ul>
+        <li><a href="index.html" aria-current="page">Главная</a></li>
+        <li><a href="pages/news.html">Новости</a></li>
+        <li><a href="pages/practices.html">Практики</a></li>
+        <li><a href="pages/goods.html">Товары</a></li>
+        <li><a href="pages/contacts.html">Контакты</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main class="wrap">
+    <h2>Информация об авторе</h2>
+    <img src="images/photo.jpg" alt="Фото автора" width="640" height="480">
+    <div class="bio">
+      <h3>Лэ Дык Тхань Дат</h3>
+      <p>ЭФБО-12-24</p>
+      <p>Род. 1970, Чебоксары</p>
+      <h4>Обо мне</h4>
+      <ul>
+        <li>Дворовый теннис: после удара мячом по голове стал другим</li>
+        <li>С детства жесткий: в 4 года уже уверенно ругался</li>
+        <li>Школа: драки, форма всегда в крови и пыли</li>
+        <li>Клей — не клеймо, а прозвище за силу</li>
+        <li>Воровал в раздевалках — так доказывал свое право</li>
+        <li>Вся злость с улиц стала оружием на корте</li>
+      </ul>
+      <p>Чемпионство не по учебникам, а по праву сильного</p>
+    </div>
+
+    <h4>Навыки</h4>
+    <div>Навык 1</div>
+    <div>Навык 2</div>
+    <div>Навык 3</div>
+    <div>Навык 4</div>
+
+    <h4>Мой опыт работы</h4>
+    <div>
+      Опыт 1<br>
+      Работал фантазёром. Сочинял и праздновал.
+    </div>
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="wrap">
+      <p style="margin:0;">© 2025 Семестровая работа</p>
+    </div>
+  </footer>
+</body>
 </html>
