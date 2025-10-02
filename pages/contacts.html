@@ -33,7 +33,7 @@
         <h2 id="contacts-title" class="section-title">Наши контакты</h2>
 
         <div class="grid">
-          <!-- Левая колонка: каждый пункт под заголовком -->
+          <!-- Одна колонка с пунктами -->
           <div class="contact-info">
             <div class="contact-block">
               <h3 class="contact-title">Электронная почта</h3>
@@ -62,13 +62,6 @@
 
             <button class="btn js-open-modal" type="button" data-modal="contact">Связаться с нами</button>
           </div>
-
-          <!-- Правая колонка: быстрая связь -->
-          <div class="contact-info">
-            <h3 class="contact-title">Быстрая связь</h3>
-            <p class="contact-text">Оставьте запрос — специалист свяжется по указанным данным.</p>
-            <button class="btn secondary js-open-modal" type="button" data-modal="contact">Открыть форму</button>
-          </div>
         </div>
       </section>
     </main>
@@ -80,7 +73,7 @@
     </footer>
   </div>
 
-  <!-- Модальное окно: обратная связь -->
+  <!-- Модальное окно: обратная связь (без изменений) -->
   <div class="modal" id="modal-contact" aria-hidden="true" aria-labelledby="modal-title" role="dialog">
     <div class="modal__backdrop js-close-modal" tabindex="-1" aria-hidden="true"></div>
 
@@ -96,17 +89,14 @@
             <span>Имя *</span>
             <input type="text" name="name" placeholder="Иван Иванов" required autocomplete="name">
           </label>
-
           <label>
             <span>Телефон *</span>
             <input type="tel" name="phone" placeholder="+7 (___) ___-__-__" required autocomplete="tel">
           </label>
-
-        <label>
+          <label>
             <span>Электронная почта *</span>
             <input type="email" name="email" placeholder="name@example.ru" required autocomplete="email">
           </label>
-
           <label>
             <span>Категория обращения *</span>
             <select name="category" required>
@@ -119,7 +109,6 @@
               <option>Другое</option>
             </select>
           </label>
-
           <label class="full">
             <span>Текст обращения *</span>
             <textarea name="message" rows="5" placeholder="Коротко опишите вопрос" required></textarea>
@@ -134,8 +123,8 @@
     </div>
   </div>
 
-  <!-- Скрипт модали -->
   <script>
+  /* Инициализация модали — без изменений */
   (function(){
     const openBtns = document.querySelectorAll('.js-open-modal[data-modal="contact"]');
     const modal = document.getElementById('modal-contact');
@@ -146,39 +135,22 @@
     const dialog = modal.querySelector('.modal__dialog');
     const firstFocusable = () => modal.querySelector('input, select, textarea, button');
 
-    function open(){
-      modal.setAttribute('aria-hidden', 'false');
-      document.body.style.overflow = 'hidden';
-      setTimeout(()=> firstFocusable()?.focus(), 0);
-      document.addEventListener('keydown', onKeydown);
-    }
-    function close(){
-      modal.setAttribute('aria-hidden', 'true');
-      document.body.style.overflow = '';
-      document.removeEventListener('keydown', onKeydown);
-      openBtns[0].focus();
-    }
+    function open(){ modal.setAttribute('aria-hidden','false'); document.body.style.overflow='hidden'; setTimeout(()=> firstFocusable()?.focus(),0); document.addEventListener('keydown', onKeydown); }
+    function close(){ modal.setAttribute('aria-hidden','true'); document.body.style.overflow=''; document.removeEventListener('keydown', onKeydown); openBtns[0].focus(); }
     function onKeydown(e){
-      if(e.key === 'Escape') close();
-      if(e.key === 'Tab'){
-        const focusables = modal.querySelectorAll('a, button, input, select, textarea, [tabindex]:not([tabindex="-1"])');
-        const list = Array.from(focusables).filter(el => !el.hasAttribute('disabled'));
-        if(list.length === 0) return;
-        const first = list[0], last = list[list.length - 1];
-        if(e.shiftKey && document.activeElement === first){ last.focus(); e.preventDefault(); }
-        else if(!e.shiftKey && document.activeElement === last){ first.focus(); e.preventDefault(); }
+      if(e.key==='Escape') close();
+      if(e.key==='Tab'){
+        const list=[...modal.querySelectorAll('a,button,input,select,textarea,[tabindex]:not([tabindex="-1"])')].filter(el=>!el.disabled);
+        if(!list.length) return; const first=list[0], last=list[list.length-1];
+        if(e.shiftKey && document.activeElement===first){ last.focus(); e.preventDefault(); }
+        else if(!e.shiftKey && document.activeElement===last){ first.focus(); e.preventDefault(); }
       }
     }
-
-    openBtns.forEach(b => b.addEventListener('click', open));
+    openBtns.forEach(b=>b.addEventListener('click', open));
     backdrop?.addEventListener('click', close);
-    closeBtns.forEach(b => b.addEventListener('click', close));
-    dialog.addEventListener('click', e => e.stopPropagation());
-    document.getElementById('feedback-form')?.addEventListener('submit', e => {
-      e.preventDefault();
-      alert('Спасибо! Сообщение отправлено.');
-      close();
-    });
+    closeBtns.forEach(b=>b.addEventListener('click', close));
+    dialog.addEventListener('click', e=> e.stopPropagation());
+    document.getElementById('feedback-form')?.addEventListener('submit', e=>{ e.preventDefault(); alert('Спасибо! Сообщение отправлено.'); close(); });
   })();
   </script>
 </body>
