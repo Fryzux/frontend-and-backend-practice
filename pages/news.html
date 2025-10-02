@@ -2,68 +2,63 @@
 <html lang="ru">
 <head>
   <meta charset="utf-8">
-  <title>Новости</title>
+  <title>Семестровая работа — Новости</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Лента новостей: обновления проекта, объявления и анонсы.">
   <link rel="stylesheet" href="../styles/style.css">
-  <meta name="description" content="Страница новостей: заголовки, даты, авторы и тексты.">
 </head>
 <body>
-  <header class="site-header" role="banner">
-    <div class="wrap">
-      <a href="../index.html" style="color:#fff;"><h1 style="margin:0;">Новости</h1></a>
-      <p class="muted" style="color:#d1d5db;">Актуальные обновления</p>
-    </div>
-  </header>
+  <div class="page-container">
+    <header class="header" role="banner">
+      <div class="wrap">
+        <h1 class="profile-title">Новости</h1>
+        <p class="profile-group">Обновления и анонсы</p>
+      </div>
+    </header>
 
-  <nav class="primary" aria-label="Основная навигация">
-    <div class="wrap">
-      <ul>
-        <li><a href="../index.html">Главная</a></li>
-        <li><a href="news.html" aria-current="page">Новости</a></li>
-        <li><a href="practices.html">Практики</a></li>
-        <li><a href="goods.html">Товары</a></li>
-        <li><a href="contacts.html">Контакты</a></li>
-      </ul>
-    </div>
-  </nav>
+    <nav class="nav" aria-label="Основная навигация">
+      <div class="wrap">
+        <ul class="nav-list">
+          <li class="nav-item"><a class="nav-link" href="../index.html">Главная</a></li>
+          <li class="nav-item"><a class="nav-link" href="news.html" aria-current="page">Новости</a></li>
+          <li class="nav-item"><a class="nav-link" href="practices.html">Практики</a></li>
+          <li class="nav-item"><a class="nav-link" href="goods.html">Товары</a></li>
+          <li class="nav-item"><a class="nav-link" href="contacts.html">Контакты</a></li>
+        </ul>
+      </div>
+    </nav>
 
-  <main id="content" class="wrap">
-    <article itemscope itemtype="https://schema.org/NewsArticle">
-      <header>
-        <h2 itemprop="headline">Запуск обновлённой версии сайта</h2>
-        <div class="meta">
-          <span>Автор: <span itemprop="author">Редакция</span></span>
-          <time datetime="2025-09-25" itemprop="datePublished">25 сентября 2025</time>
+    <main class="content" role="main">
+      <section aria-labelledby="news-title">
+        <h2 id="news-title" class="section-title">Лента</h2>
+
+        <div class="news-container">
+          <article class="news-card" aria-labelledby="n1-title">
+            <h3 id="n1-title" class="news-title">Новая версия портала</h3>
+            <p class="news-meta">Сегодня • Обновление</p>
+            <p class="news-text">Новая версия портала с улучшенной навигацией и ускоренной загрузкой. Улучшены сценарии переходов и кэширование. </p>
+          </article>
+
+          <article class="news-card" aria-labelledby="n2-title">
+            <h3 id="n2-title" class="news-title">Запуск рассылки</h3>
+            <p class="news-meta">Вчера • Анонс</p>
+            <p class="news-text">Стартует рассылка с главными новостями и аналитикой. Можно выбрать дневную или еженедельную частоту. </p>
+          </article>
+
+          <article class="news-card" aria-labelledby="n3-title">
+            <h3 id="n3-title" class="news-title">Офлайн‑чтение</h3>
+            <p class="news-meta">На этой неделе • Фича</p>
+            <p class="news-text">Офлайн‑чтение избранного и экономия трафика. Материалы синхронизируются при подключении к сети. </p>
+          </article>
         </div>
-      </header>
-      <p itemprop="articleBody">Новая версия портала с улучшенной навигацией и ускоренной загрузкой.</p>
-    </article>
+      </section>
+    </main>
 
-    <article itemscope itemtype="https://schema.org/NewsArticle">
-      <header>
-        <h2 itemprop="headline">Анонс еженедельной рассылки</h2>
-        <div class="meta">
-          <span>Автор: <span itemprop="author">PR‑отдел</span></span>
-          <time datetime="2025-09-20" itemprop="datePublished">20 сентября 2025</time>
-        </div>
-      </header>
-      <p itemprop="articleBody">Стартует рассылка с главными новостями и аналитикой.</p>
-    </article>
-
-    <article itemscope itemtype="https://schema.org/NewsArticle">
-      <header>
-        <h2 itemprop="headline">Бета‑тест мобильной версии</h2>
-        <div class="meta">
-          <span>Автор: <span itemprop="author">Команда продукта</span></span>
-          <time datetime="2025-09-15" itemprop="datePublished">15 сентября 2025</time>
-        </div>
-      </header>
-      <p itemprop="articleBody">Офлайн‑чтение избранного и экономия трафика.</p>
-    </article>
-  </main>
-
-  <footer class="site-footer" role="contentinfo">
-    <div class="wrap"><p style="margin:0;">© 2025 Семестровая работа</p></div>
-  </footer>
+    <footer class="footer" role="contentinfo">
+      <div class="wrap">
+        <p style="margin:0;">© 2025 Семестровая работа</p>
+      </div>
+    </footer>
+  </div>
 </body>
 </html>
