@@ -209,3 +209,27 @@ footer.site-footer, .footer {
   header.site-header h1, .header h1 { font-size: 28px; }
   header.site-header p, .header .muted { font-size: 16px; }
 }
+
+/* Мобильная раскладка навыков */
+@media (max-width: 480px){
+  .skills-container{
+    display: flex;
+    flex-wrap: wrap;          /* перенос по строкам */
+    gap: 10px 8px;            /* вертикальный и горизонтальный интервалы */
+    justify-content: flex-start;
+  }
+  .skill-tag{
+    display: inline-flex;     /* корректная внутренняя укладка */
+    align-items: center;
+    min-height: 36px;
+    padding: 10px 14px;       /* компактнее пэддинги */
+    border-radius: 18px;
+    max-width: 100%;          /* не выходить за контейнер */
+    white-space: nowrap;      /* чтобы не рвало буквы */
+    overflow: hidden;         /* обрезать излишки */
+    text-overflow: ellipsis;  /* троеточие при нехватке места */
+  }
+  /* чтобы длинные слова с цифрами могли переноситься, если нужно */
+  .skill-tag{ word-break: break-word; white-space: normal; }
+  /* Альтернатива: если хотите оставить на одной строке, удалите строку выше */
+}
