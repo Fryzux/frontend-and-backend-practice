@@ -444,3 +444,131 @@ footer.site-footer, .footer {
 @media (max-width: 360px){
   .skills-container{ grid-template-columns: 1fr !important; }
 }
+/* Mobile hard-fix: Skills */
+@media (max-width: 600px){
+  .skills-container{
+    display: grid !important;
+    grid-template-columns: 1fr 1fr;   /* две колонки на ~458px */
+    gap: 10px !important;
+    justify-items: stretch;
+    align-items: stretch;
+    justify-content: start !important; /* убрать центрирование */
+  }
+  .skill-tag{
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-height: 40px;
+    padding: 8px 10px !important;     /* компактные пэддинги */
+    border-radius: 20px !important;   /* меньше радиус — меньше «пузо» */
+    white-space: normal !important;   /* разрешаем перенос */
+    word-break: break-word;
+    overflow: hidden;
+    text-overflow: clip !important;
+    transform: none !important;       /* запрещаем сдвиг при hover */
+  }
+}
+/* На очень узких — по одной в ряд */
+@media (max-width: 380px){
+  .skills-container{ grid-template-columns: 1fr !important; }
+}
+
+/* Header + nav: мобильный режим */
+@media (max-width: 640px){
+  /* Шапка: меньше отступы и размер */
+  header.site-header, .header{
+    padding: 28px 12px;
+  }
+  header.site-header h1, .header h1{
+    font-size: 24px;
+    text-shadow: 0 1px 2px rgba(0,0,0,.25);
+  }
+  header.site-header p, .header .muted{
+    font-size: 14px;
+  }
+
+  /* Навигация: компактный ряд со скроллом */
+  nav.primary, .nav{
+    position: sticky;
+    top: 0;                         /* прилипает под шапку */
+    z-index: 50;
+    padding: 8px 0;
+  }
+  nav.primary ul, .nav-list{
+    gap: 12px;                      /* меньше расстояние между пунктами */
+    padding: 0 12px;                /* внутренние поля контейнера */
+    justify-content: flex-start;    /* выравнивание слева вместо center */
+    overflow-x: auto;               /* горизонтальная прокрутка */
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;          /* скрыть скроллбар в Firefox */
+  }
+  nav.primary ul::-webkit-scrollbar{ display: none; } /* скрыть в WebKit */
+
+  nav.primary a, .nav-link{
+    padding: 8px 12px;
+    font-size: 14px;
+    border-radius: 16px;
+  }
+  nav.primary a[aria-current="page"]{
+    background: rgba(255,255,255,.16);
+  }
+}
+/* ===== Mobile header + nav (пример на 320–640px) ===== */
+@media (max-width: 640px){
+  /* Шапка: компактная высота и типографика */
+  header.site-header, .header{
+    padding: 24px 12px;               /* меньше высота */
+    border-bottom: 1px solid rgba(255,255,255,.08);
+  }
+  header.site-header h1, .header h1{
+    font-size: 26px;                  /* крупно, но не громоздко */
+    font-weight: 700;
+    letter-spacing: .2px;
+    text-shadow: 0 1px 2px rgba(0,0,0,.25);
+  }
+  header.site-header p, .header .muted{
+    margin-top: 6px;
+    font-size: 14px;
+    opacity: .9;
+  }
+
+  /* Навигация под шапкой */
+  nav.primary, .nav{
+    padding: 8px 0;
+    background: #2c3e50;              /* совпадает с хедером */
+    position: sticky; top: 0; z-index: 40;
+    box-shadow: inset 0 -1px 0 rgba(255,255,255,.06);
+  }
+  nav.primary ul, .nav-list{
+    display: flex;
+    gap: 16px;                         /* равный интервал между пунктами */
+    padding: 0 12px;
+    margin: 0 auto;
+    justify-content: center;           /* центрируем как на примере */
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  nav.primary ul::-webkit-scrollbar{ display: none; }
+
+  nav.primary a, .nav-link{
+    padding: 8px 10px;
+    font-size: 14px;
+    border-radius: 999px;              /* «таблетки» как на скрине */
+    background: transparent;
+  }
+  nav.primary a:hover, .nav-link:hover{
+    background: rgba(255,255,255,.1);
+    transform: none;                   /* без «прыжка» */
+  }
+  nav.primary a[aria-current="page"]{
+    background: rgba(255,255,255,.18);
+  }
+}
+
+/* На весьма узких — уменьшим зазоры */
+@media (max-width: 360px){
+  nav.primary ul, .nav-list{ gap: 12px; }
+  nav.primary a, .nav-link{ font-size: 13px; padding: 7px 9px; }
+}
