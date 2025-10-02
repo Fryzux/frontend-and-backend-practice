@@ -7,16 +7,16 @@
   <meta name="description" content="Контактная информация, форма обратной связи и время работы.">
   <link rel="stylesheet" href="../styles/style.css">
 </head>
-<body>
+<body class="contacts">
   <div class="page-container">
-    <header class="header" role="banner">
+    <header class="site-header header" role="banner">
       <div class="wrap">
-        <h1 class="profile-title">Контакты</h1>
-        <p class="profile-group">Всегда на связи в рабочие часы</p>
+        <h1>Контакты</h1>
+        <p class="muted">Всегда на связи в рабочие часы</p>
       </div>
     </header>
 
-    <nav class="nav" aria-label="Основная навигация">
+    <nav class="primary nav" aria-label="Основная навигация">
       <div class="wrap">
         <ul class="nav-list">
           <li class="nav-item"><a class="nav-link" href="../index.html">Главная</a></li>
@@ -30,46 +30,148 @@
 
     <main class="content" role="main">
       <section class="contacts-container" aria-labelledby="contacts-title">
-        <h2 id="contacts-title" class="section-title">Как связаться</h2>
+        <h2 id="contacts-title" class="section-title">Наши контакты</h2>
 
-        <div class="contact-info">
-          <p><strong>E‑mail:</strong> hello@example.ru</p>
-          <p><strong>Адрес:</strong> 123100, г. Москва, Пресненская наб., д. 10, офис 15</p>
-          <p><strong>Часы работы:</strong> Пн–Пт: 10:00–19:00</p>
-          <p><strong>Телефон:</strong> +7 (999) 123‑45‑67</p>
-        </div>
+        <div class="grid">
+          <div class="contact-info">
+            <h3 class="section-title" style="margin-bottom:8px">Электронная почта</h3>
+            <p><strong>Адрес электронной почты:</strong> <a href="mailto:astafev@mirea.ru">astafev@mirea.ru</a></p>
 
-        <form class="contact-form" aria-labelledby="form-title">
-          <h3 id="form-title" class="section-title">Оставьте запрос</h3>
+            <h3 class="section-title" style="margin:16px 0 8px">Физический адрес</h3>
+            <p><strong>Адрес:</strong> г. Москва, ул. Пушкина, д. Колотушкина</p>
 
-          <div class="form-grid">
-            <label>
-              <span>Имя</span>
-              <input type="text" name="name" placeholder="Иван Иванов" required>
-            </label>
+            <h3 class="section-title" style="margin:16px 0 8px">Телефон</h3>
+            <p>+7 (495) 123-45-67</p>
 
-            <label>
-              <span>E‑mail</span>
-              <input type="email" name="email" placeholder="name@example.ru" required>
-            </label>
+            <h3 class="section-title" style="margin:16px 0 8px">Время работы</h3>
+            <p>Пн–Пт: 9:00–18:00</p>
 
-            <label class="full">
-              <span>Сообщение</span>
-              <textarea name="message" rows="5" placeholder="Коротко опишите вопрос" required></textarea>
-            </label>
+            <h3 class="section-title" style="margin:16px 0 8px">Социальные сети</h3>
+            <p>VK, Telegram, WhatsApp</p>
+
+            <div style="margin-top:16px">
+              <button class="btn js-open-modal" type="button" data-modal="contact">Связаться с нами</button>
+            </div>
           </div>
 
-          <button class="contact-button" type="submit">Отправить</button>
-          <button class="contact-button" type="button">Позвонить сейчас</button>
-        </form>
+          <div class="contact-info">
+            <h3 class="section-title" style="margin:0 0 8px">Быстрая связь</h3>
+            <p>Оставьте запрос — специалист свяжется по указанным данным.</p>
+            <div>
+              <button class="btn secondary js-open-modal" type="button" data-modal="contact">Открыть форму</button>
+            </div>
+          </div>
+        </div>
       </section>
     </main>
 
-    <footer class="footer" role="contentinfo">
+    <footer class="site-footer footer" role="contentinfo">
       <div class="wrap">
-        <p style="margin:0;">© 2025 Семестровая работа</p>
+        <p style="margin:0;">© 2025 Семестровая работа • Контактная информация</p>
       </div>
     </footer>
   </div>
+
+  <!-- Модальное окно: обратная связь -->
+  <div class="modal" id="modal-contact" aria-hidden="true" aria-labelledby="modal-title" role="dialog">
+    <div class="modal__backdrop js-close-modal" tabindex="-1" aria-hidden="true"></div>
+
+    <div class="modal__dialog" role="document">
+      <header class="modal__header">
+        <h2 id="modal-title" class="section-title" style="margin:0">Форма обратной связи</h2>
+        <button class="modal__close js-close-modal" type="button" aria-label="Закрыть">×</button>
+      </header>
+
+      <form class="modal__form" id="feedback-form">
+        <div class="form-grid">
+          <label>
+            <span>Имя *</span>
+            <input type="text" name="name" placeholder="Иван Иванов" required autocomplete="name">
+          </label>
+
+          <label>
+            <span>Телефон *</span>
+            <input type="tel" name="phone" placeholder="+7 (___) ___-__-__" required autocomplete="tel">
+          </label>
+
+          <label>
+            <span>Электронная почта *</span>
+            <input type="email" name="email" placeholder="name@example.ru" required autocomplete="email">
+          </label>
+
+          <label>
+            <span>Категория обращения *</span>
+            <select name="category" required>
+              <option value="" selected disabled>Выберите категорию</option>
+              <option>Техническая поддержка</option>
+              <option>Коммерческое предложение</option>
+              <option>Сотрудничество</option>
+              <option>Жалоба</option>
+              <option>Предложение</option>
+              <option>Другое</option>
+            </select>
+          </label>
+
+          <label class="full">
+            <span>Текст обращения *</span>
+            <textarea name="message" rows="5" placeholder="Коротко опишите вопрос" required></textarea>
+          </label>
+        </div>
+
+        <div class="modal__actions">
+          <button class="btn js-close-modal" type="button">Отмена</button>
+          <button class="btn secondary" type="submit">Отправить</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Скрипт модали -->
+  <script>
+  (function(){
+    const openBtns = document.querySelectorAll('.js-open-modal[data-modal="contact"]');
+    const modal = document.getElementById('modal-contact');
+    if(!openBtns.length || !modal) return;
+
+    const backdrop = modal.querySelector('.modal__backdrop');
+    const closeBtns = modal.querySelectorAll('.js-close-modal');
+    const dialog = modal.querySelector('.modal__dialog');
+    const firstFocusable = () => modal.querySelector('input, select, textarea, button');
+
+    function open(){
+      modal.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+      setTimeout(()=> firstFocusable()?.focus(), 0);
+      document.addEventListener('keydown', onKeydown);
+    }
+    function close(){
+      modal.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+      document.removeEventListener('keydown', onKeydown);
+      openBtns[0].focus();
+    }
+    function onKeydown(e){
+      if(e.key === 'Escape') close();
+      if(e.key === 'Tab'){
+        const focusables = modal.querySelectorAll('a, button, input, select, textarea, [tabindex]:not([tabindex="-1"])');
+        const list = Array.from(focusables).filter(el => !el.hasAttribute('disabled'));
+        if(list.length === 0) return;
+        const first = list[0], last = list[list.length - 1];
+        if(e.shiftKey && document.activeElement === first){ last.focus(); e.preventDefault(); }
+        else if(!e.shiftKey && document.activeElement === last){ first.focus(); e.preventDefault(); }
+      }
+    }
+
+    openBtns.forEach(b => b.addEventListener('click', open));
+    backdrop?.addEventListener('click', close);
+    closeBtns.forEach(b => b.addEventListener('click', close));
+    dialog.addEventListener('click', e => e.stopPropagation());
+    document.getElementById('feedback-form')?.addEventListener('submit', e => {
+      e.preventDefault();
+      alert('Спасибо! Сообщение отправлено.');
+      close();
+    });
+  })();
+  </script>
 </body>
 </html>
