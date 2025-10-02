@@ -135,7 +135,13 @@ main, .content {
 }
 
 /* ===== НАВЫКИ ===== */
-.skills-container { display: flex; justify-content: center; flex-wrap: wrap; gap: 15px; margin: 30px 0; }
+.skills-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin: 30px 0;
+}
 .skill-tag {
   background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
   color: #fff; padding: 12px 25px; border-radius: 25px;
@@ -203,6 +209,7 @@ footer.site-footer, .footer {
 .contact-form input, .contact-form textarea { border: 1px solid var(--border); border-radius: 10px; padding: 12px 14px; font: inherit; }
 .contact-form input:focus, .contact-form textarea:focus { outline: none; border-color: var(--accent1); box-shadow: 0 0 0 3px rgba(102,126,234,.15); }
 
+/* ===== АДАПТИВ ===== */
 @media (max-width: 640px){
   .form-grid { grid-template-columns: 1fr; }
   header.site-header, .header { padding: 36px 12px; }
@@ -210,26 +217,98 @@ footer.site-footer, .footer {
   header.site-header p, .header .muted { font-size: 16px; }
 }
 
-/* Мобильная раскладка навыков */
-@media (max-width: 480px){
+/* ===== Навыки: окончательный фикс наложений ===== */
+.skills-container .skill-tag{
+  position: relative;
+  line-height: 1.3;
+}
+
+@media (max-width: 640px){
   .skills-container{
-    display: flex;
-    flex-wrap: wrap;          /* перенос по строкам */
-    gap: 10px 8px;            /* вертикальный и горизонтальный интервалы */
-    justify-content: flex-start;
+    justify-content: flex-start !important;   /* вместо center */
   }
-  .skill-tag{
-    display: inline-flex;     /* корректная внутренняя укладка */
+}
+
+@media (max-width: 560px){
+  .skills-container{
+    display: grid !important;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px !important;
+    justify-items: stretch;
+    align-items: stretch;
+  }
+  .skills-container .skill-tag{
+    display: flex !important;
     align-items: center;
-    min-height: 36px;
-    padding: 10px 14px;       /* компактнее пэддинги */
-    border-radius: 18px;
-    max-width: 100%;          /* не выходить за контейнер */
-    white-space: nowrap;      /* чтобы не рвало буквы */
-    overflow: hidden;         /* обрезать излишки */
-    text-overflow: ellipsis;  /* троеточие при нехватке места */
+    justify-content: center;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-height: 44px;
+    padding: 10px 12px !important;
+    border-radius: 999px;
+    white-space: normal !important;
+    word-break: break-word;
+    overflow: hidden;
+    text-overflow: clip !important;
   }
-  /* чтобы длинные слова с цифрами могли переноситься, если нужно */
-  .skill-tag{ word-break: break-word; white-space: normal; }
-  /* Альтернатива: если хотите оставить на одной строке, удалите строку выше */
+}
+
+@media (max-width: 360px){
+  .skills-container{ grid-template-columns: 1fr !important; }
+}
+
+/* ===== Модальное окно ===== */
+.modal[aria-hidden="true"] { display: none; }
+.modal[aria-hidden="false"] { display: block; }
+
+.modal__backdrop{
+  position: fixed; inset: 0;
+  background: rgba(17,24,39,.55);
+  backdrop-filter: blur(2px);
+}
+
+.modal__dialog{
+  position: fixed; inset: 0;
+  margin: auto;
+  width: min(720px, calc(100% - 32px));
+  max-height: calc(100% - 32px);
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 25px 60px rgba(0,0,0,.25);
+  display: flex; flex-direction: column;
+  overflow: hidden;
+}
+
+.modal__header{
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 16px 20px; border-bottom: 1px solid var(--border);
+}
+.modal__close{
+  background: transparent; border: 0; font-size: 24px; line-height: 1;
+  color: #6b7280; cursor: pointer; padding: 6px 8px; border-radius: 8px;
+}
+.modal__close:hover{ background: #f3f4f6; }
+
+.modal__form{ padding: 16px 20px 20px; overflow: auto; }
+.modal__actions{ display: flex; justify-content: flex-end; gap: 10px; padding-top: 8px; }
+
+.modal__form input,
+.modal__form select,
+.modal__form textarea{
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 12px 14px;
+  font: inherit;
+  width: 100%;
+}
+.modal__form input:focus,
+.modal__form select:focus,
+.modal__form textarea:focus{
+  outline: none; border-color: var(--accent1);
+  box-shadow: 0 0 0 3px rgba(102,126,234,.15);
+}
+
+/* Адаптив модали */
+@media (max-width: 480px){
+  .modal__dialog{ width: calc(100% - 24px); max-height: calc(100% - 24px); }
 }
