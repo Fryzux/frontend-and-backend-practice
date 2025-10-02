@@ -2,53 +2,69 @@
 <html lang="ru">
 <head>
   <meta charset="utf-8">
-  <title>Каталог товаров</title>
+  <title>Семестровая работа — Товары</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Каталог товаров с ценами и изображениями.">
   <link rel="stylesheet" href="../styles/style.css">
-  <meta name="description" content="Каталог: карточки товаров с изображением, названием и ценой.">
 </head>
 <body>
-  <header class="site-header" role="banner">
-    <div class="wrap">
-      <a href="../index.html" style="color:#fff;"><h1 style="margin:0;">Каталог</h1></a>
-      <p class="muted" style="color:#d1d5db;">Товары и предложения</p>
-    </div>
-  </header>
+  <div class="page-container">
+    <header class="header" role="banner">
+      <div class="wrap">
+        <h1 class="profile-title">Каталог</h1>
+        <p class="profile-group">Выберите товар</p>
+      </div>
+    </header>
 
-  <nav class="primary" aria-label="Основная навигация">
-    <div class="wrap">
-      <ul>
-        <li><a href="../index.html">Главная</a></li>
-        <li><a href="news.html">Новости</a></li>
-        <li><a href="practices.html">Практики</a></li>
-        <li><a href="goods.html" aria-current="page">Товары</a></li>
-        <li><a href="contacts.html">Контакты</a></li>
-      </ul>
-    </div>
-  </nav>
+    <nav class="nav" aria-label="Основная навигация">
+      <div class="wrap">
+        <ul class="nav-list">
+          <li class="nav-item"><a class="nav-link" href="../index.html">Главная</a></li>
+          <li class="nav-item"><a class="nav-link" href="news.html">Новости</a></li>
+          <li class="nav-item"><a class="nav-link" href="practices.html">Практики</a></li>
+          <li class="nav-item"><a class="nav-link" href="goods.html" aria-current="page">Товары</a></li>
+          <li class="nav-item"><a class="nav-link" href="contacts.html">Контакты</a></li>
+        </ul>
+      </div>
+    </nav>
 
-  <main id="content" class="wrap">
-    <h2 style="margin: 0 0 12px 0;">Каталог</h2>
-    <p class="muted" style="margin: 0 0 16px 0;">Выберите товар</p>
+    <main class="content" role="main">
+      <section aria-labelledby="catalog-title">
+        <h2 id="catalog-title" class="section-title">Каталог</h2>
 
-    <ul class="catalog" role="list" aria-label="Список товаров">
-      <li class="card" aria-label="Илья Муромец">
-        <picture><img src="../images/images.jpg" alt="Илья Муромец с Юлий" width="600" height="400" loading="lazy"></picture>
-        <div class="body"><h3>Илья Муромец с Юлий</h3><div class="price">119 000 ₽</div></div>
-      </li>
-      <li class="card" aria-label="Добрыни Никитича">
-        <picture><img src="../images/images(1).jpg" alt="Добрыни Никитича" width="600" height="400" loading="lazy"></picture>
-        <div class="body"><h3>Добрыни Никитича</h3><div class="price">12 999 ₽</div></div>
-      </li>
-      <li class="card" aria-label="Алёша Попович">
-        <picture><img src="../images/images(2).jpg" alt="Алёши Попович" width="600" height="400" loading="lazy"></picture>
-        <div class="body"><h3>Алёша Попович</h3><div class="price">7 999 ₽</div></div>
-      </li>
-    </ul>
-  </main>
+        <div class="products-grid">
+          <article class="product-card" aria-labelledby="p1-name">
+            <img src="../images/product-ilya.jpg" alt="Илья Муромец с Юлий" class="product-image" width="200" height="250">
+            <h3 id="p1-name" class="product-name">Илья Муромец с Юлий</h3>
+            <p class="product-price">119 000 ₽</p>
+            <p class="experience-desc">Лимитированная серия, расширенная комплектация. </p>
+            <button class="contact-button" type="button">В корзину</button>
+          </article>
 
-  <footer class="site-footer" role="contentinfo">
-    <div class="wrap"><p style="margin:0;">© 2025 Семестровая работа</p></div>
-  </footer>
+          <article class="product-card" aria-labelledby="p2-name">
+            <img src="../images/product-dobrynya.jpg" alt="Добрыни Никитича" class="product-image" width="200" height="250">
+            <h3 id="p2-name" class="product-name">Добрыни Никитича</h3>
+            <p class="product-price">12 999 ₽</p>
+            <p class="experience-desc">Базовая модель с оптимальными характеристиками. </p>
+            <button class="contact-button" type="button">В корзину</button>
+          </article>
+
+          <article class="product-card" aria-labelledby="p3-name">
+            <img src="../images/product-alyozha.jpg" alt="Алёша Попович" class="product-image" width="200" height="250">
+            <h3 id="p3-name" class="product-name">Алёша Попович</h3>
+            <p class="product-price">7 999 ₽</p>
+            <p class="experience-desc">Компактный формат и выгодная цена. </p>
+            <button class="contact-button" type="button">В корзину</button>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer" role="contentinfo">
+      <div class="wrap">
+        <p style="margin:0;">© 2025 Семестровая работа</p>
+      </div>
+    </footer>
+  </div>
 </body>
 </html>
