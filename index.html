@@ -4,90 +4,96 @@
   <meta charset="utf-8">
   <title>Семестровая работа — Главная</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- общий файл стилей -->
-  <link rel="stylesheet" href="styles/style.css">
   <meta name="description" content="Главная страница семестровой работы: автор, новости, практики, каталог и контакты.">
+  <link rel="stylesheet" href="styles/style.css">
 </head>
 <body>
-  <!-- Шапка сайта -->
-  <header class="site-header" role="banner">
-    <div class="wrap">
-      <h1>Хедер</h1>
-      <p class="muted">Семестровая работа</p>
-    </div>
-  </header>
+  <div class="page-container">
+    <!-- Шапка -->
+    <header class="header" role="banner">
+      <div class="wrap">
+        <h1 class="profile-title">Семестровая работа</h1>
+        <p class="profile-group">Главная страница</p>
+      </div>
+    </header>
 
-  <!-- Основная навигация -->
-  <nav class="primary" aria-label="Основная навигация">
-    <div class="wrap">
-      <ul>
-        <li><a href="index.html" aria-current="page">Главная</a></li>
-        <li><a href="pages/news.html">Новости</a></li>
-        <li><a href="pages/practices.html">Практики</a></li>
-        <li><a href="pages/goods.html">Товары</a></li>
-        <li><a href="pages/contacts.html">Контакты</a></li>
-      </ul>
-    </div>
-  </nav>
+    <!-- Навигация -->
+    <nav class="nav" aria-label="Основная навигация">
+      <div class="wrap">
+        <ul class="nav-list">
+          <li class="nav-item"><a class="nav-link" href="index.html" aria-current="page">Главная</a></li>
+          <li class="nav-item"><a class="nav-link" href="pages/news.html">Новости</a></li>
+          <li class="nav-item"><a class="nav-link" href="pages/practices.html">Практики</a></li>
+          <li class="nav-item"><a class="nav-link" href="pages/goods.html">Товары</a></li>
+          <li class="nav-item"><a class="nav-link" href="pages/contacts.html">Контакты</a></li>
+        </ul>
+      </div>
+    </nav>
 
-  <!-- Контент -->
-  <main class="wrap" id="content">
-    <h2>Информация об авторе</h2>
+    <!-- Контент -->
+    <main class="content" id="content" role="main">
+      <section class="profile-header" aria-labelledby="author-title">
+        <h2 id="author-title" class="profile-title">Информация об авторе</h2>
 
-    <img src="images/photo.png" alt="Фото автора" class="profile-photo" width="640" height="480">
+        <figure>
+          <img src="images/photo.png" alt="Фотография автора" class="profile-photo" width="220" height="280">
+          <figcaption class="profile-name">Лэ Дык Тхань Дат — ЭФБО-12-24</figcaption>
+        </figure>
 
-    <div class="bio about-me">
-      <h3 class="profile-name">Лэ Дык Тхань Дат</h3>
-      <p class="profile-group">ЭФБО-12-24</p>
-      <p>Род. 1997, Чебоксары</p>
+        <p class="profile-group">Род. 1997, Чебоксары</p>
+      </section>
 
-      <h4>Обо мне</h4>
-      <ul>
-        <li>Дворовый теннис: после удара мячом по голове стал другим</li>
-        <li>С детства жесткий: в 4 года уже уверенно ругался</li>
-        <li>Школа: драки, форма всегда в крови и пыли</li>
-        <li>Клей — не клеймо, а прозвище за силу</li>
-        <li>Воровал в раздевалках — так доказывал свое право</li>
-        <li>Вся злость с улиц стала оружием на корте</li>
-      </ul>
-      <p>Чемпионство не по учебникам, а по праву сильного</p>
-    </div>
+      <section class="about-me" aria-labelledby="about-title">
+        <h3 id="about-title" class="profile-title">Обо мне</h3>
+        <p>Чемпионство не по учебникам, а по праву сильного.</p>
+        <ul>
+          <li>Дворовый теннис: после удара мячом по голове стал другим.</li>
+          <li>С детства жёсткий: в 4 года уже уверенно ругался.</li>
+          <li>Школа: драки, форма всегда в крови и пыли.</li>
+          <li>«Клей» — прозвище за силу.</li>
+          <li>Воровал в раздевалках — так доказывал своё право.</li>
+          <li>Злость с улиц стала оружием на корте.</li>
+        </ul>
+      </section>
 
-    <h4>Навыки</h4>
-    <div class="skills-container">
-      <span class="skill-tag">Навык 1
-        умею готовить
-      </span>
-      <span class="skill-tag">Навык 2
-        10 000 кубков в Clash Royale
-      </span>
-      <span class="skill-tag">Навык 3
-        Умею свистеть
-      </span>
-      <span class="skill-tag">Навык 4
-        Плавать умею
-      </span>
-    </div>
+      <section aria-labelledby="skills-title">
+        <h3 id="skills-title" class="section-title">Навыки</h3>
+        <div class="skills-grid">
+          <span class="skill-tag">Умею готовить</span>
+          <span class="skill-tag">10 000 кубков в Clash Royale</span>
+          <span class="skill-tag">Умею свистеть</span>
+          <span class="skill-tag">Плавание</span>
+        </div>
+      </section>
 
-    <section class="experience-section">
-      <h4 class="section-title">Мой опыт работы</h4>
-      <article class="experience-card">
-        <h5 class="experience-title">Опыт 1</h5>
-        <p class="experience-desc">Работал в парке.
-        <h5 class="experience-title">Опыт 2</h5>
-        <p class="experience-desc">Был в лесу.
-        <h5 class="experience-title">Опыт 3</h5>
-        <p class="experience-desc">Летал в Перу.
-        </p>
-      </article>
-    </section>
-  </main>
+      <section class="experience-section" aria-labelledby="exp-title">
+        <h3 id="exp-title" class="section-title">Мой опыт работы</h3>
 
-  <!-- Футер -->
-  <footer class="site-footer" role="contentinfo">
-    <div class="wrap">
-      <p style="margin:0;">© 2025 Семестровая работа</p>
-    </div>
-  </footer>
+        <div class="experience-grid">
+          <article class="experience-card">
+            <h4 class="experience-title">Опыт 1</h4>
+            <p class="experience-desc">Работал в парке. Работал фантазёром: сочинял и праздновал.</p>
+          </article>
+
+          <article class="experience-card">
+            <h4 class="experience-title">Опыт 2</h4>
+            <p class="experience-desc">Был в лесу. Работал воровством: воровал и продавал.</p>
+          </article>
+
+          <article class="experience-card">
+            <h4 class="experience-title">Опыт 3</h4>
+            <p class="experience-desc">Летал в Перу. Работал рэпером: читал и пел.</p>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <!-- Футер -->
+    <footer class="footer" role="contentinfo">
+      <div class="wrap">
+        <p style="margin:0;">© 2025 Семестровая работа</p>
+      </div>
+    </footer>
+  </div>
 </body>
 </html>
