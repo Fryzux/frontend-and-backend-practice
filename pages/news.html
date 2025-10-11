@@ -4,59 +4,48 @@
   <meta charset="utf-8">
   <title>Семестровая работа — Новости</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Лента новостей: обновления проекта, объявления и анонсы.">
+  <meta name="description" content="Обновления и анонсы сайта.">
   <link rel="stylesheet" href="../styles/style.css">
 </head>
 <body>
   <div class="page-container">
     <header class="header" role="banner">
       <div class="wrap">
-        <h1 class="profile-title">Новости</h1>
-        <p class="profile-group">Обновления и анонсы</p>
+        <h1 class="header__title">Новости</h1>
+        <p class="header__subtitle">Обновления и анонсы</p>
       </div>
     </header>
 
     <nav class="nav" aria-label="Основная навигация">
       <div class="wrap">
-        <ul class="nav-list">
-          <li class="nav-item"><a class="nav-link" href="../index.html">Главная</a></li>
-          <li class="nav-item"><a class="nav-link" href="news.html" aria-current="page">Новости</a></li>
-          <li class="nav-item"><a class="nav-link" href="practices.html">Практики</a></li>
-          <li class="nav-item"><a class="nav-link" href="goods.html">Товары</a></li>
-          <li class="nav-item"><a class="nav-link" href="contacts.html">Контакты</a></li>
+        <ul class="nav__list">
+          <li class="nav__item"><a class="nav__link" href="../index.html">Главная</a></li>
+          <li class="nav__item"><a class="nav__link nav__link--active" href="news.html" aria-current="page">Новости</a></li>
+          <li class="nav__item"><a class="nav__link" href="practices.html">Практики</a></li>
+          <li class="nav__item"><a class="nav__link" href="goods.html">Товары</a></li>
+          <li class="nav__item"><a class="nav__link" href="contacts.html">Контакты</a></li>
         </ul>
       </div>
     </nav>
 
     <main class="content" role="main">
-      <section aria-labelledby="news-title">
-        <h2 id="news-title" class="section-title">Лента</h2>
-
-        <div class="news-container">
-          <article class="news-card" aria-labelledby="n1-title">
-            <h3 id="n1-title" class="news-title">Новая версия портала</h3>
-            <p class="news-meta">Сегодня • Обновление</p>
-            <p class="news-text">Новая версия портала с улучшенной навигацией и ускоренной загрузкой. Улучшены сценарии переходов и кэширование. </p>
-          </article>
-
-          <article class="news-card" aria-labelledby="n2-title">
-            <h3 id="n2-title" class="news-title">Запуск рассылки</h3>
-            <p class="news-meta">Вчера • Анонс</p>
-            <p class="news-text">Стартует рассылка с главными новостями и аналитикой. Можно выбрать дневную или еженедельную частоту. </p>
-          </article>
-
-          <article class="news-card" aria-labelledby="n3-title">
-            <h3 id="n3-title" class="news-title">Офлайн‑чтение</h3>
-            <p class="news-meta">На этой неделе • Фича</p>
-            <p class="news-text">Офлайн‑чтение избранного и экономия трафика. Материалы синхронизируются при подключении к сети. </p>
-          </article>
-        </div>
+      <section>
+        <article>
+          <header><h2>Запуск сайта!</h2></header>
+          <div class="meta"><time datetime="2025-09-01">1 сентября 2025</time></div>
+          <p>Добро пожаловать! Сайт успешно запущен для учебных и проектных задач.</p>
+        </article>
+        <article>
+          <header><h2>Появились карточки товаров</h2></header>
+          <div class="meta"><time datetime="2025-09-10">10 сентября 2025</time></div>
+          <p>Каталог богатырей работает — теперь можно посмотреть характеристики и добавить в корзину.</p>
+        </article>
       </section>
     </main>
 
     <footer class="footer" role="contentinfo">
       <div class="wrap">
-        <p style="margin:0;">© 2025 Семестровая работа</p>
+        <p style="margin:0;">© 2025 Семестровая работа • Новости</p>
       </div>
     </footer>
   </div>

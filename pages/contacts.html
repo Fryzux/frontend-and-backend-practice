@@ -16,52 +16,46 @@
       </div>
     </header>
 
-    <nav class="primary nav" aria-label="Основная навигация">
+    <nav class="nav" aria-label="Основная навигация">
       <div class="wrap">
-        <ul class="nav-list">
-          <li class="nav-item"><a class="nav-link" href="../index.html">Главная</a></li>
-          <li class="nav-item"><a class="nav-link" href="news.html">Новости</a></li>
-          <li class="nav-item"><a class="nav-link" href="practices.html">Практики</a></li>
-          <li class="nav-item"><a class="nav-link" href="goods.html">Товары</a></li>
-          <li class="nav-item"><a class="nav-link" href="contacts.html" aria-current="page">Контакты</a></li>
+        <ul class="nav__list">
+          <li class="nav__item"><a class="nav__link" href="../index.html">Главная</a></li>
+          <li class="nav__item"><a class="nav__link" href="news.html">Новости</a></li>
+          <li class="nav__item"><a class="nav__link" href="practices.html">Практики</a></li>
+          <li class="nav__item"><a class="nav__link" href="goods.html">Товары</a></li>
+          <li class="nav__item"><a class="nav__link nav__link--active" href="contacts.html" aria-current="page">Контакты</a></li>
         </ul>
       </div>
     </nav>
 
     <main class="content" role="main">
-      <section class="contacts-container" aria-labelledby="contacts-title">
-        <h2 id="contacts-title" class="section-title">Наши контакты</h2>
-
-        <div class="grid">
-          <!-- Одна колонка с пунктами -->
-          <div class="contact-info">
-            <div class="contact-block">
-              <h3 class="contact-title">Электронная почта</h3>
-              <p class="contact-text"><strong>Адрес электронной почты:</strong> <a href="mailto:astafev@mirea.ru">astafev@mirea.ru</a></p>
+      <section class="contacts-main">
+        <div class="contacts-main__block">
+          <h2 class="contacts-main__title">Контакты</h2>
+          <p class="contacts-main__subtitle">Всегда на связи в рабочие часы</p>
+          <div class="contacts-main__info">
+            <div class="contacts-main__item">
+              <span class="contacts-main__label">E-mail:</span>
+              <a class="contacts-main__value" href="mailto:astafev@mirea.ru">astafev@mirea.ru</a>
             </div>
-
-            <div class="contact-block">
-              <h3 class="contact-title">Физический адрес</h3>
-              <p class="contact-text"><strong>Адрес:</strong> г. Москва, ул. Пушкина, д. Колотушкина</p>
+            <div class="contacts-main__item">
+              <span class="contacts-main__label">Адрес:</span>
+              <span class="contacts-main__value">г. Москва, ул. Пушкина, д. Колотушкина</span>
             </div>
-
-            <div class="contact-block">
-              <h3 class="contact-title">Телефон</h3>
-              <p class="contact-text">+7 (495) 123-45-67</p>
+            <div class="contacts-main__item">
+              <span class="contacts-main__label">Телефон:</span>
+              <a class="contacts-main__value" href="tel:+74951234567">+7 (495) 123-45-67</a>
             </div>
-
-            <div class="contact-block">
-              <h3 class="contact-title">Время работы</h3>
-              <p class="contact-text">Пн–Пт: 9:00–18:00</p>
+            <div class="contacts-main__item">
+              <span class="contacts-main__label">Время работы:</span>
+              <span class="contacts-main__value">Пн–Пт: 9:00–18:00</span>
             </div>
-
-            <div class="contact-block">
-              <h3 class="contact-title">Социальные сети</h3>
-              <p class="contact-text">VK, Telegram, WhatsApp</p>
+            <div class="contacts-main__item">
+              <span class="contacts-main__label">Социальные сети:</span>
+              <span class="contacts-main__value">VK, Telegram, WhatsApp</span>
             </div>
-
-            <button class="btn js-open-modal" type="button" data-modal="contact">Связаться с нами</button>
           </div>
+          <button class="contacts-main__button js-open-modal" type="button" data-modal="contact">Связаться с нами</button>
         </div>
       </section>
     </main>
@@ -73,16 +67,14 @@
     </footer>
   </div>
 
-  <!-- Модальное окно: обратная связь (без изменений) -->
+  <!-- Модальное окно: обратная связь -->
   <div class="modal" id="modal-contact" aria-hidden="true" aria-labelledby="modal-title" role="dialog">
     <div class="modal__backdrop js-close-modal" tabindex="-1" aria-hidden="true"></div>
-
     <div class="modal__dialog" role="document">
       <header class="modal__header">
         <h2 id="modal-title" class="section-title" style="margin:0">Форма обратной связи</h2>
         <button class="modal__close js-close-modal" type="button" aria-label="Закрыть">×</button>
       </header>
-
       <form class="modal__form" id="feedback-form">
         <div class="form-grid">
           <label>
@@ -114,44 +106,39 @@
             <textarea name="message" rows="5" placeholder="Коротко опишите вопрос" required></textarea>
           </label>
         </div>
-
         <div class="modal__actions">
-          <button class="btn js-close-modal" type="button">Отмена</button>
-          <button class="btn secondary" type="submit">Отправить</button>
+          <button class="button js-close-modal" type="button">Отмена</button>
+          <button class="button secondary" type="submit">Отправить</button>
         </div>
       </form>
     </div>
   </div>
-
   <script>
-  /* Инициализация модали — без изменений */
-  (function(){
-    const openBtns = document.querySelectorAll('.js-open-modal[data-modal="contact"]');
-    const modal = document.getElementById('modal-contact');
-    if(!openBtns.length || !modal) return;
-
-    const backdrop = modal.querySelector('.modal__backdrop');
-    const closeBtns = modal.querySelectorAll('.js-close-modal');
-    const dialog = modal.querySelector('.modal__dialog');
-    const firstFocusable = () => modal.querySelector('input, select, textarea, button');
-
-    function open(){ modal.setAttribute('aria-hidden','false'); document.body.style.overflow='hidden'; setTimeout(()=> firstFocusable()?.focus(),0); document.addEventListener('keydown', onKeydown); }
-    function close(){ modal.setAttribute('aria-hidden','true'); document.body.style.overflow=''; document.removeEventListener('keydown', onKeydown); openBtns[0].focus(); }
-    function onKeydown(e){
-      if(e.key==='Escape') close();
-      if(e.key==='Tab'){
-        const list=[...modal.querySelectorAll('a,button,input,select,textarea,[tabindex]:not([tabindex="-1"])')].filter(el=>!el.disabled);
-        if(!list.length) return; const first=list[0], last=list[list.length-1];
-        if(e.shiftKey && document.activeElement===first){ last.focus(); e.preventDefault(); }
-        else if(!e.shiftKey && document.activeElement===last){ first.focus(); e.preventDefault(); }
+    (function(){
+      const openBtns = document.querySelectorAll('.js-open-modal[data-modal="contact"]');
+      const modal = document.getElementById('modal-contact');
+      if(!openBtns.length || !modal) return;
+      const backdrop = modal.querySelector('.modal__backdrop');
+      const closeBtns = modal.querySelectorAll('.js-close-modal');
+      const dialog = modal.querySelector('.modal__dialog');
+      const firstFocusable = () => modal.querySelector('input, select, textarea, button');
+      function open(){ modal.setAttribute('aria-hidden','false'); document.body.style.overflow='hidden'; setTimeout(()=> firstFocusable()?.focus(),0); document.addEventListener('keydown', onKeydown); }
+      function close(){ modal.setAttribute('aria-hidden','true'); document.body.style.overflow=''; document.removeEventListener('keydown', onKeydown); openBtns[0].focus(); }
+      function onKeydown(e){
+        if(e.key==='Escape') close();
+        if(e.key==='Tab'){
+          const list=[...modal.querySelectorAll('a,button,input,select,textarea,[tabindex]:not([tabindex="-1"])')].filter(el=>!el.disabled);
+          if(!list.length) return; const first=list[0], last=list[list.length-1];
+          if(e.shiftKey && document.activeElement===first){ last.focus(); e.preventDefault(); }
+          else if(!e.shiftKey && document.activeElement===last){ first.focus(); e.preventDefault(); }
+        }
       }
-    }
-    openBtns.forEach(b=>b.addEventListener('click', open));
-    backdrop?.addEventListener('click', close);
-    closeBtns.forEach(b=>b.addEventListener('click', close));
-    dialog.addEventListener('click', e=> e.stopPropagation());
-    document.getElementById('feedback-form')?.addEventListener('submit', e=>{ e.preventDefault(); alert('Спасибо! Сообщение отправлено.'); close(); });
-  })();
+      openBtns.forEach(b=>b.addEventListener('click', open));
+      backdrop?.addEventListener('click', close);
+      closeBtns.forEach(b=>b.addEventListener('click', close));
+      dialog.addEventListener('click', e=> e.stopPropagation());
+      document.getElementById('feedback-form')?.addEventListener('submit', e=>{ e.preventDefault(); alert('Спасибо! Сообщение отправлено.'); close(); });
+    })();
   </script>
 </body>
 </html>
