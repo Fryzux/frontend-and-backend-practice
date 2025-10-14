@@ -1107,3 +1107,108 @@ body.dark-theme .theme-toggle:hover::before {
     margin: 10px auto;
   }
 }
+/* Улучшенная видимость кнопки темы */
+.theme-toggle {
+    position: relative;
+    width: 60px;
+    height: 30px;
+    border: none;
+    border-radius: 25px;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    cursor: pointer;
+    transition: all 0.4s ease;
+    box-shadow: 
+        0 4px 15px rgba(0, 0, 0, 0.3),
+        inset 0 1px 0 rgba(255,255,255,0.2);
+    overflow: hidden;
+    margin: 10px auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 5px;
+    border: 2px solid var(--color-primary);
+}
+
+.theme-toggle:hover {
+    transform: scale(1.05);
+    box-shadow: 
+        0 6px 20px rgba(0, 0, 0, 0.4),
+        inset 0 1px 0 rgba(255,255,255,0.3);
+}
+
+/* Для темной темы */
+body.dark-theme .theme-toggle {
+    background: rgba(33, 37, 41, 0.95);
+    border-color: #6c757d;
+}
+.theme-toggle-btn {
+    width: 60px !important;
+    height: 60px !important;
+    background: white !important;
+    border: 3px solid #0d6efd !important;
+    font-size: 1.2rem !important;
+}
+.theme-toggle-btn {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+    width: 50px;
+    height: 50px;
+    border: 3px solid #0d6efd;
+    border-radius: 8px;
+    background: white;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.theme-toggle-checkbox {
+    width: 24px;
+    height: 24px;
+    border: 2px solid #0d6efd;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    background: white;
+}
+
+.theme-toggle-check {
+    font-size: 18px;
+    font-weight: bold;
+    color: #0d6efd;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    transform: scale(0.8);
+}
+
+/* Темная тема - галочка видна */
+[data-bs-theme="dark"] .theme-toggle-check {
+    opacity: 1;
+    transform: scale(1);
+}
+
+[data-bs-theme="dark"] .theme-toggle-btn {
+    background: #212529;
+    border-color: #6c757d;
+}
+
+[data-bs-theme="dark"] .theme-toggle-checkbox {
+    background: #495057;
+    border-color: #6c757d;
+}
+
+.theme-toggle-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+.theme-toggle-btn:active {
+    transform: scale(0.95);
+}
