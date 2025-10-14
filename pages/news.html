@@ -13,6 +13,10 @@
       <div class="wrap">
         <h1 class="header__title">Новости</h1>
         <p class="header__subtitle">Обновления и анонсы</p>
+        <button class="theme-toggle" id="theme-toggle" aria-label="Переключить тему">
+          <span class="theme-toggle__sun">☀️</span>
+          <span class="theme-toggle__moon">🌙</span>
+        </button>
       </div>
     </header>
 
@@ -29,16 +33,47 @@
     </nav>
 
     <main class="content" role="main">
-      <section>
-        <article>
-          <header><h2>Запуск сайта!</h2></header>
-          <div class="meta"><time datetime="2025-09-01">1 сентября 2025</time></div>
-          <p>Добро пожаловать! Сайт успешно запущен для учебных и проектных задач.</p>
+      <section class="cards-container">
+        <article class="news-article">
+          <header class="news-article__header">
+            <h2>Запуск сайта!</h2>
+            <div class="news-article__meta">
+              <time datetime="2025-09-01">1 сентября 2025</time>
+              <span>•</span>
+              <span>Администратор</span>
+            </div>
+          </header>
+          <div class="news-article__content">
+            <p>Добро пожаловать! Сайт успешно запущен для учебных и проектных задач.</p>
+          </div>
         </article>
-        <article>
-          <header><h2>Появились карточки товаров</h2></header>
-          <div class="meta"><time datetime="2025-09-10">10 сентября 2025</time></div>
-          <p>Каталог богатырей работает — теперь можно посмотреть характеристики и добавить в корзину.</p>
+        
+        <article class="news-article">
+          <header class="news-article__header">
+            <h2>Появились карточки товаров</h2>
+            <div class="news-article__meta">
+              <time datetime="2025-09-10">10 сентября 2025</time>
+              <span>•</span>
+              <span>Разработчик</span>
+            </div>
+          </header>
+          <div class="news-article__content">
+            <p>Каталог богатырей работает — теперь можно посмотреть характеристики и добавить в корзину.</p>
+          </div>
+        </article>
+
+        <article class="news-article">
+          <header class="news-article__header">
+            <h2>Обновление дизайна</h2>
+            <div class="news-article__meta">
+              <time datetime="2025-09-15">15 сентября 2025</time>
+              <span>•</span>
+              <span>Дизайнер</span>
+            </div>
+          </header>
+          <div class="news-article__content">
+            <p>Мы полностью обновили дизайн сайта в соответствии с современными тенденциями. Добавлена поддержка темной темы и улучшена адаптивность.</p>
+          </div>
         </article>
       </section>
     </main>
@@ -49,5 +84,35 @@
       </div>
     </footer>
   </div>
+  
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const toggleButton = document.getElementById('theme-toggle');
+      const body = document.body;
+
+      const savedTheme = localStorage.getItem('theme');
+      if (savedTheme === 'dark') {
+        body.classList.add('dark-theme');
+        toggleButton.textContent = '☀️';
+        toggleButton.setAttribute('aria-label', 'Переключить на светлую тему');
+      } else {
+        toggleButton.textContent = '🌙';
+        toggleButton.setAttribute('aria-label', 'Переключить на темную тему');
+      }
+
+      toggleButton.addEventListener('click', () => {
+        body.classList.toggle('dark-theme');
+        if (body.classList.contains('dark-theme')) {
+          localStorage.setItem('theme', 'dark');
+          toggleButton.textContent = '☀️';
+          toggleButton.setAttribute('aria-label', 'Переключить на светлую тему');
+        } else {
+          localStorage.setItem('theme', 'light');
+          toggleButton.textContent = '🌙';
+          toggleButton.setAttribute('aria-label', 'Переключить на темную тему');
+        }
+      });
+    });
+  </script>
 </body>
 </html>
